@@ -1,0 +1,32 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="teamdevops.mnnit.MenuFragment">
+
+    <com.flaviofaria.kenburnsview.KenBurnsView
+        android:id="@+id/header_picture"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:tint="#f44336"
+        android:tintMode="multiply"
+        android:src="@drawable/gangagate" />
+
+
+    <GridView
+        android:background="@android:color/transparent"
+        android:id="@+id/menu_gridview"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:paddingTop="50dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:columnWidth="90dp"
+        android:numColumns="2"
+        android:verticalSpacing="40dp"
+        android:horizontalSpacing="50dp"
+        android:stretchMode="columnWidth"
+        android:gravity="center"></GridView>
+
+
+</FrameLayout>

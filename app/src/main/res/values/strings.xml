@@ -6,4 +6,16 @@
     <string name="title_activity_starting">startingActivity</string>
     <string name="actionbar_title">MNNIT</string>
     <string name="about_us">About Us</string>
+    <string name="title_activity_login">LoginActivity</string>
+    <string name="login">Login</string>
+    <string name="title_activity_home">Home</string>
+    <string name="drawer_open">Drawer open</string>
+    <string name="drawer_closed">Drawer closed</string>
+    <string-array name="nav_array">
+        <item>Home</item>
+        <item>Profile</item>
+        <item>Settings</item>
+        <item>Contact Us</item>
+    </string-array>
+
 </resources>

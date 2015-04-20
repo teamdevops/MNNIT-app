@@ -1,0 +1,26 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#EEEEEE"
+    tools:context="teamdevops.mnnit.NavigationDrawerFragment">
+
+    <ImageView
+        android:layout_width="280dp"
+        android:layout_height="200dp"
+        android:src="@drawable/drawerheader"
+        android:scaleType="fitXY"
+        android:layout_marginBottom="16dp"
+        android:id="@+id/ivimagedrawer" />
+
+    <ListView
+        android:layout_below="@+id/ivimagedrawer"
+        android:id="@+id/drawerList"
+        android:layout_width="280dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:background="#EEEEEE"
+        android:choiceMode="singleChoice"
+        android:divider="@null" />
+
+</RelativeLayout>
