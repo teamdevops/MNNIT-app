@@ -5,7 +5,7 @@ import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 
 /**
- * Created by Deepankar on 18-03-2015.
+ * @author Deepankar
  */
 public class StartingActivity extends ActionBarActivity {
 

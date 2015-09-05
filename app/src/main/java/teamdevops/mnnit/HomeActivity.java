@@ -25,10 +25,12 @@ import android.widget.TextView;
 
 import com.flaviofaria.kenburnsview.KenBurnsView;
 
+/**
+ * @author Deepankar
+ */
 
 public class HomeActivity extends ActionBarActivity implements AdapterView.OnItemClickListener {
 
-    private KenBurnsView mContainterPicture;
     private Toolbar toolbar;
     private DrawerLayout mDrawerLayout;
     public static CharSequence mTitle;

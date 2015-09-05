@@ -1,8 +1,20 @@
+# Java class files
+*.class
+
+# Ignore gradle files
 .gradle/
-local.properties
-.idea/
-.DS_Store
 build/
-PagerSlidingTabStrip-library/
-raw_files/
+
+# Configuration file (sdk path, etc)
+local.properties
+gradle.properties
+
+# Intellij project files
 *.iml
+.idea/
+
+# Mac system files
+.DS_Store
+
+#External ignores
+raw_files/

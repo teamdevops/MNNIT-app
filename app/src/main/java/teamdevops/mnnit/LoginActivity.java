@@ -7,6 +7,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+/**
+ * @author Deepankar
+ */
 
 public class LoginActivity extends ActionBarActivity {
 

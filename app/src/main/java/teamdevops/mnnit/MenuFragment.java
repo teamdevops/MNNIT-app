@@ -14,10 +14,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-
 /**
- * A simple {@link Fragment} subclass.
+ * @author Deepankar
  */
+
 public class MenuFragment extends Fragment {
 
 

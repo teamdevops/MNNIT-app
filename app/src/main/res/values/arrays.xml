@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="latitudes">
+        <item>25.495854</item>
+        <item>25.495147</item>
+        <item>25.494262</item>
+        <item>25.4912242</item>
+        <item>25.492380</item>
+        <item>25.490395</item>
+        <item>25.491528</item>
+        <item>25.491173</item>
+        <item>25.490085</item>
+        <item>25.488451</item>
+        <item>25.492711</item>
+        <item>25.493503</item>
+        <item>25.494854</item>
+        <item>25.495371</item>
+        <item>25.494702</item>
+        <item>25.491791</item>
+        <item>25.491053</item>
+        <item>25.490944</item>
+        <item>25.492830</item>
+        <item>25.492813</item>
+        <item>25.494079</item>
+        <item>25.494241</item>
+        <item>25.494241</item>
+        <item>25.493056</item>
+        <item>25.493475</item>
+        <item>25.492872</item>
+        <item>25.492384</item>
+        <item>25.492241</item>
+        <item>25.491803</item>
+        <item>25.492736</item>
+        <item>25.494092</item>
+        <item>25.494906</item>
+        <item>25.493312</item>
+        <item>25.492756</item>
+        <item>25.492292</item>
+        <item>25.492299</item>
+        <item>25.491606</item>
+        <item>25.493614</item>
+        <item>25.491713</item>
+
+    </string-array>
+
+    <string-array name="longitudes">
+        <item>81.868087</item>
+        <item>81.868328</item>
+        <item>81.868135</item>
+        <item>81.8634117</item>
+        <item>81.862355</item>
+        <item>81.863331</item>
+        <item>81.866120</item>
+        <item>81.861574</item>
+        <item>81.863969</item>
+        <item>81.869741</item>
+        <item>81.861247</item>
+        <item>81.867626</item>
+        <item>81.867312</item>
+        <item>81.869004</item>
+        <item>81.867309</item>
+        <item>81.868130</item>
+        <item>81.868983</item>
+        <item>81.867358</item>
+        <item>81.868495</item>
+        <item>81.868162</item>
+        <item>81.862674</item>
+        <item>81.861419</item>
+        <item>81.861419</item>
+        <item>81.863012</item>
+        <item>81.863268</item>
+        <item>81.863277 </item>
+        <item>81.862969</item>
+        <item>81.862926</item>
+        <item>81.862379</item>
+        <item>81.864107</item>
+        <item>81.864837</item>
+        <item>81.864794</item>
+        <item>81.865948</item>
+        <item>81.865889</item>
+        <item>81.865485</item>
+        <item>81.866085</item>
+        <item>81.865011</item>
+        <item>81.862250</item>
+        <item>81.863151</item>
+
+    </string-array>
+
+    <string-array name="maptitles">
+        <item>Tandon Hostel</item>
+        <item>MNNIT Boys Hostel Mess</item>
+        <item>Tilak Hostel</item>
+        <item>Computer Science and Engineering Dept</item>
+        <item>MNNIT Seminar Hall</item>
+        <item>Swami Vivekanand Boys Hostel</item>
+        <item>MNNIT Cafeteria</item>
+        <item>Institution Of Engineers Allahabad</item>
+        <item>PG Hostel</item>
+        <item>KN Girls Hostel</item>
+        <item>Ganga Gate</item>
+        <item>Patel hostel</item>
+        <item>Ojha Traders</item>
+        <item>Malviya Hostel</item>
+        <item>Raj Canteen</item>
+        <item>MNNIT International House</item>
+        <item>Nabh House</item>
+        <item>Faculty Residence</item>
+        <item>Teachers\' Colony</item>
+        <item>MNNIT Dispensary</item>
+        <item>Amul Outlet</item>
+        <item>Yamuna Gate</item>
+        <item>Adminsitrative Bld</item>
+        <item>NLH 1-2</item>
+        <item>EW rooms</item>
+        <item>GS Lecture Halls</item>
+        <item>Dean Academics</item>
+        <item>Center for Interdisciplinary Research</item>
+        <item>Lecture Hall Complex</item>
+        <item>Central Library</item>
+        <item>Mechanical Workshop</item>
+        <item>Football Ground</item>
+        <item>Gymkhana Ground</item>
+        <item>Gymkhana</item>
+        <item>Skating Ground</item>
+        <item>BasketBall Court</item>
+        <item>NCC office</item>
+        <item>Adminstrative Bld</item>
+        <item>Computer Center</item>
+    </string-array>
+</resources>

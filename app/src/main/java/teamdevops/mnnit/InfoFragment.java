@@ -1,6 +1,7 @@
 package teamdevops.mnnit;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -13,7 +14,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-
+/**
+ * @author Deepankar
+ *
+ */
 public class InfoFragment extends Fragment {
 
     @Override
@@ -26,7 +30,11 @@ public class InfoFragment extends Fragment {
         gridview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View v,
                                     int position, long id) {
-                Toast.makeText(getActivity(), "Clicked", Toast.LENGTH_SHORT).show();
+
+                if(position == 3)
+                    startActivity(new Intent(getActivity(),MnnitMapsActivity.class));
+                else
+                    Toast.makeText(getActivity(),"Clicked",Toast.LENGTH_SHORT).show();
             }
         });
         return view;

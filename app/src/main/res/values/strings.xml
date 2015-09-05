@@ -11,11 +11,13 @@
     <string name="title_activity_home">Home</string>
     <string name="drawer_open">Drawer open</string>
     <string name="drawer_closed">Drawer closed</string>
+
     <string-array name="nav_array">
         <item>Home</item>
         <item>Profile</item>
         <item>Settings</item>
         <item>Contact Us</item>
     </string-array>
+    <string name="title_activity_mnnit_maps">MNNIT Maps</string>
 
 </resources>
