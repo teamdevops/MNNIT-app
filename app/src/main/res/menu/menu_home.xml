@@ -1,7 +1,7 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context="teamdevops.mnnit.HomeActivity">
+    tools:context="teamdevops.mnnit.activity.HomeActivity">
     <item
         android:id="@+id/about_us"
         android:title="@string/about_us"

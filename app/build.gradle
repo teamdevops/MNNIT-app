@@ -2,7 +2,7 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 21
-    buildToolsVersion "23.0.0"
+    buildToolsVersion "23.0.1"
 
     defaultConfig {
         applicationId "teamdevops.mnnit"
@@ -21,7 +21,7 @@ android {
 
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
-    compile 'com.android.support:appcompat-v7:22.0.0'
+    compile 'com.android.support:appcompat-v7:22.0.+'
     compile 'com.android.support:cardview-v7:21.0.+'
     compile 'com.google.android.gms:play-services:6.5.87'
     compile files('libs/kenburnsview-1.0.6.jar')

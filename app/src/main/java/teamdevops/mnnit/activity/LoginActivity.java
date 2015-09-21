@@ -1,4 +1,4 @@
-package teamdevops.mnnit;
+package teamdevops.mnnit.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -7,7 +7,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import teamdevops.mnnit.R;
+
 /**
+ * This activity is for login screen of Dean Academics of MNNIT.
  * @author Deepankar
  */
 

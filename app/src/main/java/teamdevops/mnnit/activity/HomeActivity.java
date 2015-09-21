@@ -1,4 +1,4 @@
-package teamdevops.mnnit;
+package teamdevops.mnnit.activity;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -10,7 +10,6 @@ import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -23,7 +22,11 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.flaviofaria.kenburnsview.KenBurnsView;
+import teamdevops.mnnit.R;
+import teamdevops.mnnit.fragment.DashBoardFragment;
+import teamdevops.mnnit.fragment.InfoFragment;
+import teamdevops.mnnit.fragment.MenuFragment;
+import teamdevops.mnnit.fragment.NavigationDrawerFragment;
 
 /**
  * @author Deepankar
@@ -34,7 +37,6 @@ public class HomeActivity extends ActionBarActivity implements AdapterView.OnIte
     private Toolbar toolbar;
     private DrawerLayout mDrawerLayout;
     public static CharSequence mTitle;
-    public static final CharSequence mAppTitle = "MNNIT";
     protected String[] mNavTitles;
     private ListView mdrawerListView;
     private MyAdapter myAdapter;
@@ -109,23 +111,6 @@ public class HomeActivity extends ActionBarActivity implements AdapterView.OnIte
 
                 @Override
                 public void onPageSelected(int position) {
-
-                    if (position == 0) {
-                        toolbar.setBackgroundColor(getResources().getColor(R.color.FragmentMenuPrimaryColor));
-                        getWindow().setStatusBarColor(getResources().getColor(R.color.FragmentMenuPrimaryColorDark));
-                        mPagerTitleStrip.setBackgroundColor(getResources().getColor(R.color.FragmentMenuPrimaryColorDark));
-                        mPagerTitleStrip.setTextSize(TypedValue.COMPLEX_UNIT_SP, 16);
-                    }
-                    if (position == 1) {
-                        toolbar.setBackgroundColor(getResources().getColor(R.color.HomeActivityPrimaryColor));
-                        getWindow().setStatusBarColor(getResources().getColor(R.color.HomeActivityPrimaryColorDark));
-                        mPagerTitleStrip.setBackgroundColor(getResources().getColor(R.color.HomeActivityPrimaryColorDark));
-                    }
-                    if (position == 2) {
-                        toolbar.setBackgroundColor(getResources().getColor(R.color.FragmentInfoPrimaryColor));
-                        getWindow().setStatusBarColor(getResources().getColor(R.color.FragmentInfoPrimaryColorDark));
-                        mPagerTitleStrip.setBackgroundColor(getResources().getColor(R.color.FragmentInfoPrimaryColorDark));
-                    }
                 }
 
                 @Override

@@ -1,7 +1,7 @@
-package teamdevops.mnnit;
+package teamdevops.mnnit.fragment;
+
 
 import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -14,27 +14,32 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import teamdevops.mnnit.R;
+
 /**
  * @author Deepankar
- *
  */
-public class InfoFragment extends Fragment {
+
+public class MenuFragment extends Fragment {
+
+
+    public MenuFragment() {
+        // Required empty public constructor
+    }
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_info, container, false);
-        GridView gridview = (GridView) view.findViewById(R.id.info_gridview);
+        View view = inflater.inflate(R.layout.fragment_menu, container, false);
+        GridView gridview = (GridView) view.findViewById(R.id.menu_gridview);
         gridview.setAdapter(new ImageAdapter(getActivity()));
+
         gridview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View v,
                                     int position, long id) {
-
-                if(position == 3)
-                    startActivity(new Intent(getActivity(),MnnitMapsActivity.class));
-                else
-                    Toast.makeText(getActivity(),"Clicked",Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(), "Clicked", Toast.LENGTH_SHORT).show();
             }
         });
         return view;
@@ -44,11 +49,11 @@ public class InfoFragment extends Fragment {
         Context context;
 
         private Integer[] mDrawableIds = {
-                R.drawable.ic_admissions, R.drawable.ic_departments_1,
-                R.drawable.ic_clubs, R.drawable.ic_maps,
-                R.drawable.ic_life, R.drawable.ic_emergency};
+                R.drawable.ic_news_color, R.drawable.ic_notice_color,
+                R.drawable.ic_planner_color_1, R.drawable.ic_result,
+                R.drawable.ic_grievance, R.drawable.ic_mess};
 
-        private String[] mTextViews = {"Admissions", "Departments", "Clubs", "MNNIT Maps", "Life@MNNIT", "Emergency"};
+        private String[] mTextViews = {"News", "Announcements", "Planner", "Results", "E-Grievance", "Mess"};
 
         public ImageAdapter(Context context) {
             this.context = context;
@@ -71,6 +76,7 @@ public class InfoFragment extends Fragment {
 
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
+
             View item = null;
             if (convertView == null) {
                 LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -88,4 +94,5 @@ public class InfoFragment extends Fragment {
             return item;
         }
     }
+
 }

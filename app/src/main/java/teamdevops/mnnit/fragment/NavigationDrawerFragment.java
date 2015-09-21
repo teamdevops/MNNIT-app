@@ -1,4 +1,4 @@
-package teamdevops.mnnit;
+package teamdevops.mnnit.fragment;
 
 
 import android.content.Context;
@@ -11,6 +11,10 @@ import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import teamdevops.mnnit.R;
+import teamdevops.mnnit.activity.HomeActivity;
+import teamdevops.mnnit.entities.Constants;
 
 
 /**
@@ -65,7 +69,7 @@ public class NavigationDrawerFragment extends Fragment {
             public void onDrawerOpened(View drawerView) {
                 super.onDrawerOpened(drawerView);
                 getActivity().invalidateOptionsMenu();
-                toolbar.setTitle(HomeActivity.mAppTitle);
+                toolbar.setTitle(Constants.mAppTitle);
             }
 
             @Override
