@@ -90,7 +90,8 @@
             android:textStyle="bold"
             android:textSize="20sp"
             android:id="@+id/bLogin"
-            android:fontFamily="sans-serif-condensed" />
+            android:fontFamily="sans-serif-condensed"
+            android:onClick="login"/>
 
     </LinearLayout>
 

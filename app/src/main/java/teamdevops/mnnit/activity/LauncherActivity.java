@@ -7,10 +7,10 @@ import android.support.v7.app.ActionBarActivity;
 import teamdevops.mnnit.R;
 
 /**
- * This activity is the Splash Screen of Application.
+ * This activity is the Splash Launcher Screen of Application.
  * @author Deepankar
  */
-public class StartingActivity extends ActionBarActivity {
+public class LauncherActivity extends ActionBarActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,7 +25,7 @@ public class StartingActivity extends ActionBarActivity {
                 } finally {
                     Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
                     startActivity(intent);
-                    StartingActivity.this.finish();
+                    LauncherActivity.this.finish();
                 }
             }
         };

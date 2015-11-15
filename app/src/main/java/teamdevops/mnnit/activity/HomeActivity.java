@@ -38,7 +38,7 @@ public class HomeActivity extends ActionBarActivity implements AdapterView.OnIte
     private DrawerLayout mDrawerLayout;
     public static CharSequence mTitle;
     protected String[] mNavTitles;
-    private ListView mdrawerListView;
+    private ListView mDrawerListView;
     private MyAdapter myAdapter;
     private ViewPager mViewPager;
     private PagerTitleStrip mPagerTitleStrip;
@@ -69,11 +69,11 @@ public class HomeActivity extends ActionBarActivity implements AdapterView.OnIte
 
         mTitle = toolbar.getTitle();
         mNavTitles = getResources().getStringArray(R.array.nav_array);
-        mdrawerListView = (ListView) findViewById(R.id.drawerList);
+        mDrawerListView = (ListView) findViewById(R.id.drawerList);
 
         myAdapter = new MyAdapter(this);
-        mdrawerListView.setAdapter(myAdapter);
-        mdrawerListView.setOnItemClickListener(this);
+        mDrawerListView.setAdapter(myAdapter);
+        mDrawerListView.setOnItemClickListener(this);
 
         if (NavigationDrawerFragment.mUserLearnedDrawer)
             selectItem(0);
@@ -90,15 +90,14 @@ public class HomeActivity extends ActionBarActivity implements AdapterView.OnIte
         if (position == 0 && selectedPosition == 0) {
             setTitle(mNavTitles[position]);
             mDrawerLayout.closeDrawer(fragmentView);
-            mdrawerListView.setItemChecked(position, true);
+            mDrawerListView.setItemChecked(position, true);
         }
         if (position == 0 && selectedPosition != 0) {
 
             selectedPosition = position;
             setTitle(mNavTitles[position]);
-            mdrawerListView.setItemChecked(position, true);
+            mDrawerListView.setItemChecked(position, true);
             mDrawerLayout.closeDrawer(fragmentView);
-
             mViewPager.setAdapter(new MainPagerAdapter(
                     getSupportFragmentManager()));
             mViewPager.setCurrentItem(1);
