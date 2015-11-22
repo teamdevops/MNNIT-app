@@ -94,7 +94,6 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     public void selectItem(int position) {
-
         if (position == -1) {
             mViewPager.setAdapter(new MainPagerAdapter(
                     getSupportFragmentManager()));
@@ -119,6 +118,7 @@ public class HomeActivity extends AppCompatActivity {
         }
 
         if (position == 1 && selectedPosition != 1) {
+            selectedPosition = position;
             if (session.isLoggedIn()) {
                 mDrawerLayout.closeDrawer(mFragmentNavDrawerView);
                 Intent i = new Intent(HomeActivity.this, ProfileActivity.class);

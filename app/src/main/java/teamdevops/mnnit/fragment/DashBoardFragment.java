@@ -51,10 +51,15 @@ public class DashBoardFragment extends Fragment {
                     startActivity(i);
                 }
             });
-        } else {
-            Intent i = new Intent(getActivity(), LoginActivity.class);
-            startActivity(i);
-            getActivity().finish();
+        }
+        else {
+            loginCard.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent i = new Intent(getActivity(), LoginActivity.class);
+                    startActivity(i);
+                }
+            });
         }
         return rootView;
     }

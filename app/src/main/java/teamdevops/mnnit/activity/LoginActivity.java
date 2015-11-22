@@ -68,6 +68,8 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
         progressDialog = new ProgressDialog(this);
         progressDialog.setMessage("Logging in...");
+        progressDialog.setCancelable(false);
+        progressDialog.setCanceledOnTouchOutside(false);
         alertDialog = new AlertDialog.Builder(this).create();
         regNo = (EditText) findViewById(R.id.etRegNo);
         password = (EditText) findViewById(R.id.etPassword);
