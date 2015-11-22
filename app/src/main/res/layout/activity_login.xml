@@ -2,16 +2,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="teamdevops.mnnit.activity.LoginActivity"
+    android:layout_gravity="center"
     android:orientation="vertical"
-    android:layout_gravity="center">
+    tools:context="teamdevops.mnnit.activity.LoginActivity">
 
 
     <ImageView
+        android:id="@+id/ivLogo"
         android:layout_width="wrap_content"
         android:layout_height="100dp"
         android:scaleType="fitXY"
-        android:id="@+id/ivLogo"
         android:src="@drawable/header" />
 
     <View
@@ -22,76 +22,87 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
+        android:layout_marginTop="30dp"
         android:orientation="vertical">
 
         <TextView
-            android:gravity="center"
-            android:fontFamily="sans-serif-black"
-            android:textStyle="bold"
-            android:layout_height="wrap_content"
             android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:fontFamily="sans-serif-black"
+            android:gravity="center"
             android:text="@string/login"
             android:textSize="25sp"
-            android:layout_marginBottom="20dp" />
+            android:textStyle="bold" />
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:orientation="horizontal">
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Username : "
-                android:fontFamily="sans-serif-thin"
-                android:textSize="20sp" />
-
-            <EditText
-                android:inputType="phone"
-                android:ems="10"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Registation no."
-                android:id="@+id/etRegNo" />
+                android:orientation="vertical"
+                android:padding="10dp">
 
-        </LinearLayout>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:orientation="horizontal"
-            android:layout_marginBottom="20dp">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="sans-serif-thin"
+                        android:text="Username : "
+                        android:textSize="20sp" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Password :  "
-                android:fontFamily="sans-serif-thin"
-                android:textSize="20sp" />
+                    <EditText
+                        android:id="@+id/etRegNo"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:ems="10"
+                        android:hint="Registation no."
+                        android:inputType="phone" />
 
-            <EditText
-                android:id="@+id/etPassword"
-                android:ems="10"
-                android:inputType="textPassword"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Password" />
+                </LinearLayout>
 
-        </LinearLayout>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="sans-serif-thin"
+                        android:text="Password :  "
+                        android:textSize="20sp" />
+
+                    <EditText
+                        android:id="@+id/etPassword"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:ems="10"
+                        android:hint="Password"
+                        android:inputType="textPassword" />
+
+                </LinearLayout>
+            </LinearLayout>
+        </android.support.v7.widget.CardView>
 
 
         <Button
+            android:id="@+id/bLogin"
             android:layout_width="match_parent"
             android:layout_height="60dp"
-            android:text="Login"
-            android:textStyle="bold"
-            android:textSize="20sp"
-            android:id="@+id/bLogin"
             android:fontFamily="sans-serif-condensed"
-            android:onClick="login"/>
+            android:text="Login"
+            android:textSize="20sp"
+            android:textStyle="bold" />
 
     </LinearLayout>
 
@@ -100,13 +111,13 @@
         android:layout_height="match_parent">
 
         <Button
+            android:id="@+id/bSkipOffline"
             android:layout_width="match_parent"
             android:layout_height="60dp"
-            android:text="Skip"
+            android:layout_alignParentBottom="true"
             android:fontFamily="sans-serif-condensed"
-            android:textSize="20sp"
-            android:id="@+id/bSkipOffline"
-            android:layout_alignParentBottom="true" />
+            android:text="Skip"
+            android:textSize="20sp" />
     </RelativeLayout>
 
 

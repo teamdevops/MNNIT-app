@@ -1,6 +1,7 @@
 package teamdevops.mnnit.activity;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -8,7 +9,7 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.PagerTitleStrip;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -27,103 +28,113 @@ import teamdevops.mnnit.fragment.DashBoardFragment;
 import teamdevops.mnnit.fragment.InfoFragment;
 import teamdevops.mnnit.fragment.MenuFragment;
 import teamdevops.mnnit.fragment.NavigationDrawerFragment;
+import teamdevops.mnnit.helper.SessionManager;
 
 /**
+ * Home screen of the app after login
+ * This class includes the action for Navigation Drawer as well as ViewPager initialisation
+ *
  * @author Deepankar
  */
 
-public class HomeActivity extends ActionBarActivity implements AdapterView.OnItemClickListener {
+public class HomeActivity extends AppCompatActivity {
 
     private Toolbar toolbar;
     private DrawerLayout mDrawerLayout;
     public static CharSequence mTitle;
     protected String[] mNavTitles;
     private ListView mDrawerListView;
-    private MyAdapter myAdapter;
     private ViewPager mViewPager;
     private PagerTitleStrip mPagerTitleStrip;
     private FrameLayout mMainContainer;
-    private NavigationDrawerFragment drawerFragment;
-    private View fragmentView;
+    private View mFragmentNavDrawerView;
+    private SessionManager session;
     private int selectedPosition = -1;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_home_appbar);
-        toolbar = (Toolbar) findViewById(R.id.app_bar);
+        setContentView(R.layout.activity_home);
+        toolbar = (Toolbar) findViewById(R.id.app_bar_home);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
+        session = SessionManager.getInstance(getApplicationContext());
 
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         mViewPager = (ViewPager) findViewById(R.id.pager);
         mPagerTitleStrip = (PagerTitleStrip) findViewById(R.id.pager_title_strip);
         mMainContainer = (FrameLayout) findViewById(R.id.main_container);
-        fragmentView = findViewById(R.id.fragment_nav_drawer);
-
-        drawerFragment = (NavigationDrawerFragment) getSupportFragmentManager().findFragmentById(R.id.fragment_nav_drawer);
-        drawerFragment.setup(fragmentView, mDrawerLayout, toolbar);
-
-        mTitle = toolbar.getTitle();
-        mNavTitles = getResources().getStringArray(R.array.nav_array);
+        mFragmentNavDrawerView = findViewById(R.id.viewFrag_nav_drawer);
         mDrawerListView = (ListView) findViewById(R.id.drawerList);
 
-        myAdapter = new MyAdapter(this);
+        NavigationDrawerFragment drawerFragment = (NavigationDrawerFragment) getSupportFragmentManager().findFragmentById(R.id.viewFrag_nav_drawer);
+        drawerFragment.setup(mFragmentNavDrawerView, mDrawerLayout, toolbar);
+
+        mTitle = toolbar.getTitle();
+        if (session.isLoggedIn())
+            mNavTitles = getResources().getStringArray(R.array.login_nav_array);
+        else
+            mNavTitles = getResources().getStringArray(R.array.not_login_nav_array);
+
+        MyAdapter myAdapter = new MyAdapter(this);
         mDrawerListView.setAdapter(myAdapter);
-        mDrawerListView.setOnItemClickListener(this);
+        mDrawerListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                selectItem(position);
+            }
+        });
 
         if (NavigationDrawerFragment.mUserLearnedDrawer)
             selectItem(0);
-
-    }
-
-    @Override
-    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        selectItem(position);
+        else
+            selectItem(-1);
     }
 
     public void selectItem(int position) {
 
+        if (position == -1) {
+            mViewPager.setAdapter(new MainPagerAdapter(
+                    getSupportFragmentManager()));
+            mViewPager.setCurrentItem(1);
+        }
+
         if (position == 0 && selectedPosition == 0) {
             setTitle(mNavTitles[position]);
-            mDrawerLayout.closeDrawer(fragmentView);
+            mDrawerLayout.closeDrawer(mFragmentNavDrawerView);
             mDrawerListView.setItemChecked(position, true);
         }
+
         if (position == 0 && selectedPosition != 0) {
 
             selectedPosition = position;
             setTitle(mNavTitles[position]);
             mDrawerListView.setItemChecked(position, true);
-            mDrawerLayout.closeDrawer(fragmentView);
+            mDrawerLayout.closeDrawer(mFragmentNavDrawerView);
             mViewPager.setAdapter(new MainPagerAdapter(
                     getSupportFragmentManager()));
             mViewPager.setCurrentItem(1);
+        }
 
-            mViewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
-                @Override
-                public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-
-                }
-
-                @Override
-                public void onPageSelected(int position) {
-                }
-
-                @Override
-                public void onPageScrollStateChanged(int state) {
-                }
-            });
-
+        if (position == 1 && selectedPosition != 1) {
+            if (session.isLoggedIn()) {
+                mDrawerLayout.closeDrawer(mFragmentNavDrawerView);
+                Intent i = new Intent(HomeActivity.this, ProfileActivity.class);
+                startActivity(i);
+            } else {
+                mDrawerLayout.closeDrawer(mFragmentNavDrawerView);
+                Intent i = new Intent(HomeActivity.this, LoginActivity.class);
+                startActivity(i);
+                HomeActivity.this.finish();
+            }
         }
     }
 
     @Override
     public void setTitle(CharSequence title) {
         mTitle = title;
-        toolbar.setTitle(mTitle);
     }
 
     @Override
@@ -173,7 +184,7 @@ public class HomeActivity extends ActionBarActivity implements AdapterView.OnIte
 
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
-            View item = null;
+            View item;
             if (convertView == null) {
                 LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
                 item = inflater.inflate(R.layout.drawer_list_item, parent, false);

@@ -9,6 +9,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:src="@drawable/gangagate" />
+
     <!-- android:tint="#FF9800"
         android:tintMode="multiply" -->
 
@@ -25,7 +26,7 @@
         android:verticalSpacing="40dp"
         android:horizontalSpacing="50dp"
         android:stretchMode="columnWidth"
-        android:gravity="center"></GridView>
+        android:gravity="center"/>
 
 
 </FrameLayout>

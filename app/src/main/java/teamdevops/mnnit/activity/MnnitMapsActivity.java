@@ -1,8 +1,8 @@
 package teamdevops.mnnit.activity;
 
-import android.graphics.Color;
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.ActionBar;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 
 import com.google.android.gms.maps.CameraUpdate;
@@ -16,33 +16,35 @@ import com.google.android.gms.maps.model.MarkerOptions;
 import teamdevops.mnnit.R;
 
 /**
+ * Activity showing MNNIT Maps with pin points of the locations and function to start navigation
+ *
  * @author Deepankar
  */
 
-public class MnnitMapsActivity extends ActionBarActivity {
+public class MnnitMapsActivity extends AppCompatActivity {
 
-    private Toolbar toolbar;
-    private GoogleMap map;
     private final LatLng LOCATION_MNNIT = new LatLng(25.494127, 81.866386);
-    private UiSettings mapsettings;
-
-    private String latitude[];
-    private String longitude[];
-    private String titles[];
+    private final String ACTIONBAR_TITLE = "MNNIT Maps";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mnnit_maps);
-        toolbar = (Toolbar) findViewById(R.id.app_bar);
-        toolbar.setTitle("MNNIT Maps");
-        toolbar.setBackgroundColor(Color.BLACK);
+
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar_maps);
+        setSupportActionBar(toolbar);
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setTitle(ACTIONBAR_TITLE);
+        actionBar.setDisplayHomeAsUpEnabled(true);
+
         MapFragment mapFragment = (MapFragment) getFragmentManager().findFragmentById(R.id.map);
-        map = mapFragment.getMap();
-        mapsettings = map.getUiSettings();
-        latitude = getResources().getStringArray(R.array.latitudes);
-        longitude = getResources().getStringArray(R.array.longitudes);
-        titles = getResources().getStringArray(R.array.maptitles);
+        GoogleMap map = mapFragment.getMap();
+        UiSettings mapsettings = map.getUiSettings();
+
+        String latitude[]  = getResources().getStringArray(R.array.latitudes);
+        String longitude[] = getResources().getStringArray(R.array.longitudes);
+        String titles[] = getResources().getStringArray(R.array.maptitles);
+
         map.setMapType(GoogleMap.MAP_TYPE_SATELLITE);
         mapsettings.setCompassEnabled(true);
         mapsettings.setMyLocationButtonEnabled(true);

@@ -5,8 +5,12 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.util.Log;
 
+import teamdevops.mnnit.entities.Constants;
+
 /**
- * Created by Deepankar on 05-11-2015.
+ * Class for controlling session of logged in users
+ *
+ * @author Deepankar
  */
 public class SessionManager {
 
@@ -21,7 +25,7 @@ public class SessionManager {
     // Shared pref mode
     int PRIVATE_MODE = 0;
     // Shared preferences file name
-    private static final String PREF_NAME = "MNNIT";
+    private static final String PREF_NAME = Constants.mAppTitle;
     private static final String KEY_IS_LOGGEDIN = "isLoggedIn";
 
     private SessionManager(Context context) {
@@ -31,9 +35,9 @@ public class SessionManager {
     }
 
     public static synchronized SessionManager getInstance(Context context) {
-        if(mInstance == null)
+        if (mInstance == null)
             mInstance = new SessionManager(context);
-        return  mInstance;
+        return mInstance;
     }
 
     public void setLogin(boolean isLoggedIn) {
@@ -42,6 +46,7 @@ public class SessionManager {
         editor.commit();
         Log.d(TAG, "User login session modified!");
     }
+
     public boolean isLoggedIn() {
         return pref.getBoolean(KEY_IS_LOGGEDIN, false);
     }

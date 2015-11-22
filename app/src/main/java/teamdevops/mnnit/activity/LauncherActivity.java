@@ -2,15 +2,16 @@ package teamdevops.mnnit.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.AppCompatActivity;
 
 import teamdevops.mnnit.R;
 
 /**
  * This activity is the Splash Launcher Screen of Application.
+ *
  * @author Deepankar
  */
-public class LauncherActivity extends ActionBarActivity {
+public class LauncherActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -17,6 +17,8 @@ import android.widget.Toast;
 import teamdevops.mnnit.R;
 
 /**
+ * Fragment class for the Menu page on the home screen
+ *
  * @author Deepankar
  */
 
@@ -77,20 +79,17 @@ public class MenuFragment extends Fragment {
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
 
-            View item = null;
+            View item;
             if (convertView == null) {
                 LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
                 item = inflater.inflate(R.layout.gird_view_item, parent, false);
             } else {
                 item = convertView;
             }
-
             ImageView imageView = (ImageView) item.findViewById(R.id.ivGridItem);
             TextView textView = (TextView) item.findViewById(R.id.tvGridItem);
-
             textView.setText(mTextViews[position]);
             imageView.setImageResource(mDrawableIds[position]);
-
             return item;
         }
     }

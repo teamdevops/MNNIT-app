@@ -1,9 +1,8 @@
-<FrameLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:tools="http://schemas.android.com/tools"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
     <com.flaviofaria.kenburnsview.KenBurnsView
         android:id="@+id/header_picture"
@@ -16,7 +15,8 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_gravity="center">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -26,14 +26,14 @@
             tools:context="teamdevops.mnnit.fragment.DashBoardFragment">
 
             <android.support.v7.widget.CardView
-                android:layout_height="wrap_content"
-                android:layout_width="match_parent"
                 android:id="@+id/loginCard"
-                app:cardElevation="15dp"
-                app:cardCornerRadius="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 android:clickable="true"
-                app:cardBackgroundColor="#e8eaf6">
+                app:cardBackgroundColor="@color/cardview_light_background"
+                app:cardCornerRadius="5dp"
+                app:cardElevation="15dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -42,12 +42,11 @@
                     android:padding="10dp">
 
                     <ImageView
-                        android:id="@+id/loginCardBackImage"
+                        android:id="@+id/loginCardImage"
                         android:layout_width="75dp"
                         android:layout_height="75dp"
-                        android:scaleType="fitXY"
                         android:padding="5dp"
-                        android:layout_alignParentLeft="true"
+                        android:scaleType="fitXY"
                         android:src="@drawable/ic_profile_color" />
 
                     <LinearLayout
@@ -56,26 +55,26 @@
                         android:orientation="vertical">
 
                         <TextView
-                            android:paddingLeft="5dp"
-                            android:layout_marginTop="10dp"
                             android:id="@+id/loginCardTextHeader"
-                            android:text="You are not logged in"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:textSize="20sp"
+                            android:layout_marginTop="10dp"
                             android:fontFamily="sans-serif-condensed"
+                            android:paddingLeft="5dp"
+                            android:text="@string/loginCardTextHeader"
+                            android:textSize="20sp"
                             android:textStyle="bold" />
 
                         <TextView
-                            android:paddingLeft="5dp"
-                            android:layout_marginTop="5dp"
                             android:id="@+id/loginCardTextInfo"
-                            android:text="Login to access all service"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:textSize="15sp"
+                            android:layout_marginTop="5dp"
                             android:fontFamily="sans-serif-condensed"
-                            android:textColor="@android:color/darker_gray" />
+                            android:paddingLeft="5dp"
+                            android:text="@string/loginCardTextInfo"
+                            android:textColor="@android:color/darker_gray"
+                            android:textSize="15sp" />
                     </LinearLayout>
                 </LinearLayout>
 
@@ -83,14 +82,14 @@
             </android.support.v7.widget.CardView>
 
             <android.support.v7.widget.CardView
-                android:layout_height="wrap_content"
-                android:layout_width="match_parent"
                 android:id="@+id/plannerCard"
-                app:cardElevation="15dp"
-                app:cardCornerRadius="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 android:clickable="true"
-                app:cardBackgroundColor="#e8eaf6">
+                app:cardBackgroundColor="@color/cardview_light_background"
+                app:cardCornerRadius="5dp"
+                app:cardElevation="15dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -102,9 +101,8 @@
                         android:id="@+id/plannerCardImage"
                         android:layout_width="75dp"
                         android:layout_height="75dp"
-                        android:scaleType="fitXY"
                         android:padding="5dp"
-                        android:layout_alignParentLeft="true"
+                        android:scaleType="fitXY"
                         android:src="@drawable/ic_planner_color_1" />
 
                     <LinearLayout
@@ -113,26 +111,26 @@
                         android:orientation="vertical">
 
                         <TextView
-                            android:paddingLeft="5dp"
-                            android:layout_marginTop="10dp"
                             android:id="@+id/plannerCardTextHeader"
-                            android:text="Your next plan"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:textSize="20sp"
+                            android:layout_marginTop="10dp"
                             android:fontFamily="sans-serif-condensed"
+                            android:paddingLeft="5dp"
+                            android:text="@string/plannerCardTextHeader"
+                            android:textSize="20sp"
                             android:textStyle="bold" />
 
                         <TextView
-                            android:paddingLeft="5dp"
-                            android:layout_marginTop="5dp"
                             android:id="@+id/plannerCardTextInfo"
-                            android:text="You have nothing planned"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:textSize="15sp"
+                            android:layout_marginTop="5dp"
                             android:fontFamily="sans-serif-condensed"
-                            android:textColor="@android:color/darker_gray" />
+                            android:paddingLeft="5dp"
+                            android:text="@string/plannerCardTextinfo"
+                            android:textColor="@android:color/darker_gray"
+                            android:textSize="15sp" />
                     </LinearLayout>
                 </LinearLayout>
 
@@ -140,14 +138,14 @@
             </android.support.v7.widget.CardView>
 
             <android.support.v7.widget.CardView
-                android:layout_height="wrap_content"
-                android:layout_width="match_parent"
                 android:id="@+id/noticeCard"
-                app:cardElevation="15dp"
-                app:cardCornerRadius="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 android:clickable="true"
-                app:cardBackgroundColor="#e8eaf6">
+                app:cardBackgroundColor="@color/cardview_light_background"
+                app:cardCornerRadius="5dp"
+                app:cardElevation="15dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -160,7 +158,6 @@
                         android:layout_width="75dp"
                         android:layout_height="75dp"
                         android:scaleType="fitXY"
-                        android:layout_alignParentLeft="true"
                         android:src="@drawable/ic_notice_color" />
 
                     <LinearLayout
@@ -169,26 +166,26 @@
                         android:orientation="vertical">
 
                         <TextView
-                            android:paddingLeft="5dp"
-                            android:layout_marginTop="10dp"
                             android:id="@+id/noticeCardTextHeader"
-                            android:text="Notice/Announcement"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:textSize="20sp"
+                            android:layout_marginTop="10dp"
                             android:fontFamily="sans-serif-condensed"
+                            android:paddingLeft="5dp"
+                            android:text="@string/noticeCardTextHeader"
+                            android:textSize="20sp"
                             android:textStyle="bold" />
 
                         <TextView
-                            android:paddingLeft="5dp"
-                            android:layout_marginTop="5dp"
                             android:id="@+id/noticeCardTextInfo"
-                            android:text="No new notice/announcement"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:textSize="15sp"
+                            android:layout_marginTop="5dp"
                             android:fontFamily="sans-serif-condensed"
-                            android:textColor="@android:color/darker_gray" />
+                            android:paddingLeft="5dp"
+                            android:text="@string/noticeCardTextInfo"
+                            android:textColor="@android:color/darker_gray"
+                            android:textSize="15sp" />
                     </LinearLayout>
                 </LinearLayout>
 
@@ -196,14 +193,14 @@
             </android.support.v7.widget.CardView>
 
             <android.support.v7.widget.CardView
-                android:layout_height="wrap_content"
-                android:layout_width="match_parent"
                 android:id="@+id/newsfeedCard"
-                app:cardElevation="15dp"
-                app:cardCornerRadius="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 android:clickable="true"
-                app:cardBackgroundColor="#e8eaf6">
+                app:cardBackgroundColor="@color/cardview_light_background"
+                app:cardCornerRadius="5dp"
+                app:cardElevation="15dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -215,9 +212,8 @@
                         android:id="@+id/newsfeedCardImage"
                         android:layout_width="75dp"
                         android:layout_height="75dp"
-                        android:scaleType="fitXY"
                         android:padding="5dp"
-                        android:layout_alignParentLeft="true"
+                        android:scaleType="fitXY"
                         android:src="@drawable/ic_news_color" />
 
                     <LinearLayout
@@ -226,27 +222,27 @@
                         android:orientation="vertical">
 
                         <TextView
-                            android:paddingLeft="5dp"
-                            android:layout_marginTop="10dp"
                             android:id="@+id/newsfeedCardTextHeader"
-                            android:layout_centerHorizontal="true"
-                            android:text="News Feed"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:textSize="20sp"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginTop="10dp"
                             android:fontFamily="sans-serif-condensed"
+                            android:paddingLeft="5dp"
+                            android:text="@string/newsCardTextHeader"
+                            android:textSize="20sp"
                             android:textStyle="bold" />
 
                         <TextView
-                            android:paddingLeft="5dp"
-                            android:layout_marginTop="5dp"
                             android:id="@+id/newsfeedCardTextInfo"
-                            android:text="No new news feed"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:textSize="15sp"
+                            android:layout_marginTop="5dp"
                             android:fontFamily="sans-serif-condensed"
-                            android:textColor="@android:color/darker_gray" />
+                            android:paddingLeft="5dp"
+                            android:text="@string/newsCardTextInfo"
+                            android:textColor="@android:color/darker_gray"
+                            android:textSize="15sp" />
                     </LinearLayout>
                 </LinearLayout>
 

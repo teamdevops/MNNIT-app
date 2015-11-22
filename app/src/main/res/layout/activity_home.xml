@@ -1,17 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
     <include
-        layout="@layout/app_bar"
-        android:id="@+id/app_bar"></include>
+        android:id="@+id/app_bar_home"
+        layout="@layout/app_bar"></include>
 
 
     <android.support.v4.widget.DrawerLayout xmlns:app="http://schemas.android.com/apk/res-auto"
-
         android:id="@+id/drawer_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -26,32 +25,28 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom"
-                android:textColor="#fff"
-                android:paddingTop="4dp"
-                android:background="#1a237e"
+                android:background="@color/HomeActivityPrimaryColorDark"
+                android:elevation="20dp"
                 android:padding="5dp"
-                android:elevation="20dp" />
+                android:paddingTop="4dp"
+                android:textColor="#ffffff" />
 
         </android.support.v4.view.ViewPager>
 
         <FrameLayout
-
+            android:id="@+id/main_container"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:id="@+id/main_container">
-
-        </FrameLayout>
+            android:layout_height="match_parent"/>
 
 
         <fragment
-            android:id="@+id/fragment_nav_drawer"
+            android:id="@+id/viewFrag_nav_drawer"
+            android:name="teamdevops.mnnit.fragment.NavigationDrawerFragment"
             android:layout_width="@dimen/nav_drawer_width"
             android:layout_height="match_parent"
             android:layout_gravity="start"
             app:layout="@layout/fragment_navigation_drawer"
-            android:name="teamdevops.mnnit.fragment.NavigationDrawerFragment"
-            tools:layout="@layout/fragment_navigation_drawer"></fragment>
-
+            tools:layout="@layout/fragment_navigation_drawer"/>
 
     </android.support.v4.widget.DrawerLayout>
 

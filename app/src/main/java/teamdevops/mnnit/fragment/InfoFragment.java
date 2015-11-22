@@ -18,8 +18,9 @@ import teamdevops.mnnit.R;
 import teamdevops.mnnit.activity.MnnitMapsActivity;
 
 /**
- * @author Deepankar
+ * Fragment class for the information page on the home screen
  *
+ * @author Deepankar
  */
 public class InfoFragment extends Fragment {
 
@@ -34,10 +35,10 @@ public class InfoFragment extends Fragment {
             public void onItemClick(AdapterView<?> parent, View v,
                                     int position, long id) {
 
-                if(position == 3)
-                    startActivity(new Intent(getActivity(),MnnitMapsActivity.class));
+                if (position == 3)
+                    startActivity(new Intent(getActivity(), MnnitMapsActivity.class));
                 else
-                    Toast.makeText(getActivity(),"Clicked",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity(), "Clicked", Toast.LENGTH_SHORT).show();
             }
         });
         return view;
@@ -74,7 +75,7 @@ public class InfoFragment extends Fragment {
 
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
-            View item = null;
+            View item;
             if (convertView == null) {
                 LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
                 item = inflater.inflate(R.layout.gird_view_item, parent, false);

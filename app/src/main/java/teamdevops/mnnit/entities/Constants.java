@@ -5,8 +5,9 @@ package teamdevops.mnnit.entities;
  *
  * @author Deepankar
  */
+
 public class Constants {
 
-    public static final CharSequence mAppTitle = "MNNIT";
+    public static final String mAppTitle = "MNNIT";
 
 }

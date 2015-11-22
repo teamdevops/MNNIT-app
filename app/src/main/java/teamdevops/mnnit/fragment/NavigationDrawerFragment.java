@@ -23,7 +23,7 @@ import teamdevops.mnnit.entities.Constants;
 public class NavigationDrawerFragment extends Fragment {
 
     private static final String PREF_FILE_NAME = "testpref";
-    public static final String KEY_USER_LEARNED_DRAWER = "user-learned-drawer";
+    private static final String KEY_USER_LEARNED_DRAWER = "user-learned-drawer";
     private ActionBarDrawerToggle mdrawerToggle;
     private DrawerLayout mDrawerLayout;
     private View fragmentNavView;
@@ -81,6 +81,7 @@ public class NavigationDrawerFragment extends Fragment {
 
             }
         };
+
         if (!mUserLearnedDrawer) {
             mDrawerLayout.openDrawer(fragmentNavView);
         }

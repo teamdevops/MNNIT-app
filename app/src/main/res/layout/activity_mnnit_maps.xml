@@ -4,9 +4,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <include
-        layout="@layout/app_bar"
-        android:id="@+id/app_bar"></include>
+    <android.support.v7.widget.Toolbar
+        android:layout_width="match_parent"
+        android:id="@+id/toolbar_maps"
+        android:layout_height="wrap_content"
+        android:background="@color/HomeActivityPrimaryColor"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark"
+        android:elevation="12dp"/>
+
 
     <fragment
         android:id="@+id/map"

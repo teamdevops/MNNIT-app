@@ -3,21 +3,37 @@
 
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
-    <string name="title_activity_starting">startingActivity</string>
+    <string name="title_activity_starting">SplashScreen</string>
     <string name="actionbar_title">MNNIT</string>
     <string name="about_us">About Us</string>
-    <string name="title_activity_login">LoginActivity</string>
+    <string name="title_activity_login">Login</string>
     <string name="login">Login</string>
     <string name="title_activity_home">Home</string>
     <string name="drawer_open">Drawer open</string>
     <string name="drawer_closed">Drawer closed</string>
 
-    <string-array name="nav_array">
+    <string-array name="login_nav_array">
         <item>Home</item>
         <item>Profile</item>
         <item>Settings</item>
         <item>Contact Us</item>
     </string-array>
+    <string-array name="not_login_nav_array">
+        <item>Home</item>
+        <item>Login</item>
+        <item>Settings</item>
+        <item>Contact Us</item>
+    </string-array>
     <string name="title_activity_mnnit_maps">MNNIT Maps</string>
+    <string name="title_activity_profile">Profile</string>
+    <string name="headerImageDescp">Header Image for Navigation Drawer</string>
+    <string name="newsCardTextInfo">No new news feed</string>
+    <string name="newsCardTextHeader">News Feed</string>
+    <string name="noticeCardTextInfo">No new notice/announcement</string>
+    <string name="noticeCardTextHeader">Notice/Announcement</string>
+    <string name="plannerCardTextinfo">You have nothing planned</string>
+    <string name="plannerCardTextHeader">Your next plan</string>
+    <string name="loginCardTextInfo">Login to access all service</string>
+    <string name="loginCardTextHeader">You are not logged in</string>
 
 </resources>

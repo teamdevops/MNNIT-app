@@ -4,7 +4,8 @@ import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.AppCompatActivity;
+import android.util.Base64;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -17,6 +18,8 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 
+import org.apache.commons.codec.binary.Hex;
+import org.apache.commons.codec.digest.DigestUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -35,16 +38,13 @@ import teamdevops.mnnit.helper.SessionManager;
  * @author Deepankar
  */
 
-public class LoginActivity extends ActionBarActivity {
+public class LoginActivity extends AppCompatActivity {
 
     private static final String TAG = LoginActivity.class.getSimpleName();
     private EditText regNo;
     private EditText password;
-    private Button login;
-    private Button skippoffline;
     private ProgressDialog progressDialog;
     private AlertDialog alertDialog;
-    private JSONObject jsonObject;
     private SessionManager session;
     private SQLiteHandler db;
 
@@ -71,8 +71,8 @@ public class LoginActivity extends ActionBarActivity {
         alertDialog = new AlertDialog.Builder(this).create();
         regNo = (EditText) findViewById(R.id.etRegNo);
         password = (EditText) findViewById(R.id.etPassword);
-        login = (Button) findViewById(R.id.bLogin);
-        skippoffline = (Button) findViewById(R.id.bSkipOffline);
+        Button login = (Button) findViewById(R.id.bLogin);
+        Button skippoffline = (Button) findViewById(R.id.bSkipOffline);
 
         // SQLite database handler
         db = new SQLiteHandler(getApplicationContext());
@@ -91,61 +91,67 @@ public class LoginActivity extends ActionBarActivity {
             public void onClick(View v) {
                 String reg = regNo.getText().toString();
                 String pass = password.getText().toString();
-                try {
-                    showDialog();
-                    login(reg, pass);
-                } catch (JSONException e) {
-                    e.printStackTrace();
+                if (reg.equals("") || pass.equals(""))
+                    Toast.makeText(getApplicationContext(), "Empty username or password", Toast.LENGTH_SHORT).show();
+                else {
+                    try {
+                        // Generating Hash of password and sending request to server
+                        String passHash = new String(Hex.encodeHex(DigestUtils.sha1(pass)));
+                        Log.d("PassHash", passHash);
+                        Log.d("Pass", pass);
+                        showDialog();
+                        login(reg, passHash);
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
                 }
             }
         });
     }
 
-    private void login(final String regno, final String password) throws JSONException {
+    private void login(final String regno, final String passHash) throws JSONException {
 
-        // POST parameters
-        Map<String, String> params = new HashMap<String, String>();
-        params.put("tag", "login");
-        params.put("regno" , regno);
-        params.put("password",password);
-
-        JSONObject jsonObject = new JSONObject(params);
-
-        StringRequest stringRequest = new StringRequest(Request.Method.POST, AppConfig.URL_LOGIN , new Response.Listener<String>() {
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, AppConfig.URL_LOGIN, new Response.Listener<String>() {
 
             @Override
             public void onResponse(String response) {
-                Log.d(TAG, "Login Response: " + response.toString());
+                Log.d(TAG, "Login Response: " + response);
                 try {
-                    hideDialog();
                     JSONObject jsonObject = new JSONObject(response);
-                    Log.e( TAG, jsonObject.toString());
+                    //Log.e(TAG, jsonObject.toString());
                     if (jsonObject.getString("error").equals("0")) {
+                        hideDialog();
                         // User login successful, now store the user in sqlite and shared preference
                         session.setLogin(true);
                         JSONObject user = jsonObject.getJSONObject("user");
-                        String name = user.getString("name");
                         int regno = user.getInt("regno");
+                        String name = user.getString("name");
+                        String fathername = user.getString("fathername");
+                        String gender = user.getString("gender");
                         String email = user.getString("email");
                         long phoneNo = user.getLong("phoneno");
-                        db.addUser(name,email,regno,phoneNo);
+                        String dob = user.getString("dob");
+                        String address = user.getString("address");
+                        String bloodgroup = user.getString("bloodgroup");
+                        String hostel = user.getString("hostel");
+                        int roomno = user.getInt("roomno");
+                        byte[] imgByteArray = Base64.decode(user.getString("image"), Base64.DEFAULT);
+                        db.addUser(regno, name, fathername, gender, email, phoneNo, dob, address, bloodgroup, hostel, roomno, imgByteArray);
                         db.close();
                         Intent i = new Intent(LoginActivity.this, HomeActivity.class);
-                        i.putExtra("name", user.getString("name"));
                         startActivity(i);
+                        LoginActivity.this.finish();
                     } else if (jsonObject.getString("error").equals("1")) {
                         hideDialog();
                         alertDialog.setTitle("Login Error");
                         alertDialog.setMessage(jsonObject.getString("error_msg"));
                         alertDialog.show();
-                    }
-                    else if (jsonObject.getString("error").equals("2")) {
+                    } else if (jsonObject.getString("error").equals("2")) {
                         hideDialog();
                         alertDialog.setTitle("Login Error");
                         alertDialog.setMessage(jsonObject.getString("error_msg"));
                         alertDialog.show();
-                    }
-                    else {
+                    } else {
                         hideDialog();
                         alertDialog.setTitle("Login Error");
                         alertDialog.setMessage(jsonObject.getString("error_msg"));
@@ -159,18 +165,18 @@ public class LoginActivity extends ActionBarActivity {
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError volleyError) {
-                progressDialog.hide();
-                Log.d(TAG , volleyError.toString());
+                hideDialog();
+                Log.d(TAG, volleyError.toString());
                 Toast.makeText(getApplicationContext(), "Login Error : Could not connect to server. Please check active internet connection", Toast.LENGTH_SHORT).show();
             }
         }) {
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 // Posting params to register url
-                Map<String, String> params = new HashMap<String, String>();
+                Map<String, String> params = new HashMap<>();
                 params.put("tag", "login");
                 params.put("regno", regno);
-                params.put("password", password);
+                params.put("passHash", passHash);
                 return params;
             }
         };

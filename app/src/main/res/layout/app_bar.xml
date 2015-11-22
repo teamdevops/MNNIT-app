@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<android.support.v7.widget.Toolbar
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v7.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/app_bar_org"
     android:layout_width="match_parent"
-    android:id="@+id/app_bar_1"
     android:layout_height="wrap_content"
     android:background="@color/HomeActivityPrimaryColor"
-    android:theme="@style/ThemeOverlay.AppCompat.Dark"
-    android:elevation="12dp">
+    android:elevation="12dp"
+    android:theme="@style/ThemeOverlay.AppCompat.Dark">
 
 </android.support.v7.widget.Toolbar>
