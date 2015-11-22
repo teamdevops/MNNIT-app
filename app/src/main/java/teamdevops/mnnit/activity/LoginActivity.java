@@ -13,6 +13,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
+import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
@@ -35,7 +36,7 @@ import teamdevops.mnnit.helper.SessionManager;
 /**
  * This activity is for login screen of Dean Academics of MNNIT.
  *
- * @author Deepankar
+ * @author Deepankar , Avinash Bawane
  */
 
 public class LoginActivity extends AppCompatActivity {
@@ -47,6 +48,7 @@ public class LoginActivity extends AppCompatActivity {
     private AlertDialog alertDialog;
     private SessionManager session;
     private SQLiteHandler db;
+    private static final int MAX_TIMEOUT_MS = 120000;
 
     @Override
     protected void onResume() {
@@ -182,6 +184,8 @@ public class LoginActivity extends AppCompatActivity {
                 return params;
             }
         };
+        stringRequest.setRetryPolicy(new DefaultRetryPolicy(MAX_TIMEOUT_MS, DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
+                DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
         VolleySingleton.getInstance(getApplicationContext()).addToRequestQueue(stringRequest);
     }
 
