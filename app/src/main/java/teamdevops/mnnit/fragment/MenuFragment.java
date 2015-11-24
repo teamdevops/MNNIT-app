@@ -16,7 +16,11 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import teamdevops.mnnit.R;
+<<<<<<< HEAD
 import teamdevops.mnnit.activity.CMSActivity;
+=======
+import teamdevops.mnnit.activity.TimeTableActivity;
+>>>>>>> 4d3631f91112260c479cd683fe467ce6b3d8d4cf
 
 /**
  * Fragment class for the Menu page on the home screen
@@ -43,10 +47,17 @@ public class MenuFragment extends Fragment {
         gridview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View v,
                                     int position, long id) {
+<<<<<<< HEAD
                 if(position == 4)
                     startActivity(new Intent(getActivity(), CMSActivity.class));
                 else
                     Toast.makeText(getActivity(), "Clicked", Toast.LENGTH_SHORT).show();
+=======
+
+                if(position == 2)
+                    startActivity(new Intent(getActivity(), TimeTableActivity.class));
+                Toast.makeText(getActivity(), "Clicked", Toast.LENGTH_SHORT).show();
+>>>>>>> 4d3631f91112260c479cd683fe467ce6b3d8d4cf
             }
         });
         return view;

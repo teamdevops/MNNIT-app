@@ -58,6 +58,7 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="teamdevops.mnnit.activity.HomeActivity" />
         </activity>
+
         <activity
             android:name=".activity.CMSActivity"
             android:label="@string/title_activity_cms"
@@ -67,6 +68,18 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="teamdevops.mnnit.activity.HomeActivity" />
         </activity>
+
+
+        <activity
+            android:name=".activity.TimeTableActivity"
+            android:label="@string/title_activity_time_table"
+            android:parentActivityName=".activity.HomeActivity"
+            android:theme="@style/TimeTableActivityTheme">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="teamdevops.mnnit.activity.HomeActivity" />
+        </activity>
+
         <activity
             android:name=".activity.AddGrievanceActivity"
             android:label="@string/title_activity_add_grievance"

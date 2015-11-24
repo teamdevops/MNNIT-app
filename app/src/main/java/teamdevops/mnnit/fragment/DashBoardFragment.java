@@ -9,11 +9,17 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.HashMap;
 
 import teamdevops.mnnit.R;
 import teamdevops.mnnit.activity.LoginActivity;
 import teamdevops.mnnit.activity.ProfileActivity;
+import teamdevops.mnnit.activity.TimeTableActivity;
+import teamdevops.mnnit.entities.TimeTableData;
 import teamdevops.mnnit.helper.SQLiteHandler;
 
 /**
@@ -37,9 +43,16 @@ public class DashBoardFragment extends Fragment {
         // Inflate the layout for this fragment
         View rootView = inflater.inflate(R.layout.fragment_dash_board, container, false);
         CardView loginCard = (CardView) rootView.findViewById(R.id.loginCard);
+        CardView plannerCard = (CardView) rootView.findViewById(R.id.plannerCard);
+
         TextView loginHeader = (TextView) rootView.findViewById(R.id.loginCardTextHeader);
         TextView loginTextInfo = (TextView) rootView.findViewById(R.id.loginCardTextInfo);
+        TextView plannerTextHeader = (TextView) rootView.findViewById(R.id.plannerCardTextHeader);
+        TextView plannerTextInfo = (TextView) rootView.findViewById(R.id.plannerCardTextInfo);
+
         HashMap<String, String> user = db.getUserDetails();
+
+
         db.close();
         if (!user.isEmpty()) {
             loginHeader.setText("Welcome " + user.get("name") + "!");
@@ -61,6 +74,13 @@ public class DashBoardFragment extends Fragment {
                 }
             });
         }
+
+        plannerCard.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getActivity(), TimeTableActivity.class));
+            }
+        });
         return rootView;
     }
 }

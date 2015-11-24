@@ -13,5 +13,8 @@
     <color name="FragmentMenuPrimaryColor">#FF9800</color>
     <color name="FragmentMenuPrimaryColorDark">#F57C00</color>
     <color name="FragmentMenuAccentColorDark">#673AB7</color>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
 
 </resources>
