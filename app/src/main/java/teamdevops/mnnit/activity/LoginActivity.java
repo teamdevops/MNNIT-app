@@ -115,7 +115,7 @@ public class LoginActivity extends AppCompatActivity {
 
     private void login(final String regno, final String passHash) throws JSONException {
 
-        StringRequest stringRequest = new StringRequest(Request.Method.POST, AppConfig.URL_LOGIN, new Response.Listener<String>() {
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, AppConfig.REMOTE_URL_LOGIN, new Response.Listener<String>() {
 
             @Override
             public void onResponse(String response) {

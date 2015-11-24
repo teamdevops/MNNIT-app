@@ -7,7 +7,12 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.HashMap;
+
+import teamdevops.mnnit.entities.Grievance;
 
 /**
  * This class includes all the SQLite Database connection and functions
@@ -23,8 +28,11 @@ public class SQLiteHandler extends SQLiteOpenHelper {
     private static final int DATABASE_VERSION = 1;
     // Database Name
     private static final String DATABASE_NAME = "mnnit";
-    // Login table name
+
+    // Table names
     private static final String TABLE_USER = "user";
+    private static final String TABLE_GREIVANCE = "grievance";
+
     // Login Table Columns names
     public static final String KEY_REGNO = "regno";
     public static final String KEY_NAME = "name";
@@ -39,6 +47,44 @@ public class SQLiteHandler extends SQLiteOpenHelper {
     public static final String KEY_ROOMNO = "roomno";
     public static final String KEY_IMAGE = "image";
 
+    // Grievance Table column names
+    public static final String KEY_COMPID = "compid";
+    public static final String KEY_SUBJECT = "subject";
+    //public static final String KEY_REGNO = "regno";
+    public static final String KEY_TYPE = "type";
+    public static final String KEY_GRIEVANCE = "grievance";
+    public static final String KEY_STATUS = "status";
+    public static final String KEY_CREATEDAT = "created_at";
+
+
+    // Queries for Creation of table
+    public static final String CREATE_LOGIN_TABLE =
+            "CREATE TABLE " + TABLE_USER + "("
+                    + KEY_REGNO + " INTEGER PRIMARY KEY NOT NULL,"
+                    + KEY_NAME + " TEXT NOT NULL,"
+                    + KEY_FATHER + " TEXT NOT NULL,"
+                    + KEY_GENDER + " TEXT NOT NULL,"
+                    + KEY_EMAIL + " TEXT NOT NULL,"
+                    + KEY_PHONE + " INTEGER NOT NULL,"
+                    + KEY_DOB + " TEXT NOT NULL,"
+                    + KEY_ADDRESS + " TEXT NOT NULL,"
+                    + KEY_BLOODGROUP + " TEXT,"
+                    + KEY_HOSTEL + " TEXT,"
+                    + KEY_ROOMNO + " INTEGER,"
+                    + KEY_IMAGE + " BLOB "
+                    + ")";
+
+    public static final String CREATE_GRIEVANCE_TABLE =
+            "CREATE TABLE " + TABLE_GREIVANCE + "("
+                    + KEY_COMPID + " INTEGER PRIMARY KEY NOT NULL,"
+                    + KEY_SUBJECT + " TEXT ,"
+                    + KEY_REGNO + " INTEGER NOT NULL,"
+                    + KEY_TYPE + " TEXT NOT NULL,"
+                    + KEY_GRIEVANCE + " TEXT ,"
+                    + KEY_STATUS + " INTEGER NOT NULL,"
+                    + KEY_CREATEDAT + " TEXT NOT NULL "
+                    + ")";
+
 
     public SQLiteHandler(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -47,22 +93,8 @@ public class SQLiteHandler extends SQLiteOpenHelper {
     // Creating Tables
     @Override
     public void onCreate(SQLiteDatabase db) {
-        String CREATE_LOGIN_TABLE =
-                "CREATE TABLE " + TABLE_USER + "("
-                        + KEY_REGNO + " INTEGER PRIMARY KEY NOT NULL,"
-                        + KEY_NAME + " TEXT NOT NULL,"
-                        + KEY_FATHER + " TEXT NOT NULL,"
-                        + KEY_GENDER + " TEXT NOT NULL,"
-                        + KEY_EMAIL + " TEXT NOT NULL,"
-                        + KEY_PHONE + " INTEGER NOT NULL,"
-                        + KEY_DOB + " TEXT NOT NULL,"
-                        + KEY_ADDRESS + " TEXT NOT NULL,"
-                        + KEY_BLOODGROUP + " TEXT,"
-                        + KEY_HOSTEL + " TEXT,"
-                        + KEY_ROOMNO + " INTEGER,"
-                        + KEY_IMAGE + " BLOB "
-                        + ")";
         db.execSQL(CREATE_LOGIN_TABLE);
+        db.execSQL(CREATE_GRIEVANCE_TABLE);
         Log.d(TAG, "Database tables created");
     }
 
@@ -102,10 +134,45 @@ public class SQLiteHandler extends SQLiteOpenHelper {
     }
 
     /**
-     * Add profile image into DB
+     * Getting Grievance data from database
      */
-    public void addImage(int regno, byte[] image) {
+    public ArrayList<Grievance> getGrievanceDetails() {
+        ArrayList<Grievance> grievancesData = new ArrayList<>();
+        String selectQuery = "SELECT  * FROM " + TABLE_GREIVANCE;
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery(selectQuery, null);
+        // Move to first row
+        cursor.moveToFirst();
+        for (int i = 0; i < cursor.getCount(); i++) {
+            Grievance entry = new Grievance();
+            entry.setSubject(cursor.getString(1));
+            entry.setType(cursor.getString(3));
+            entry.setGrievance(cursor.getString(4));
+            entry.setStatus(cursor.getString(5));
+            SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+            try {
+                entry.setDate(df.parse(cursor.getString(6)));
+            } catch (ParseException e) {
+                Log.d(TAG, "Date Parse Error " + e.getMessage());
+            }
+            grievancesData.add(entry);
+            cursor.moveToNext();
+        }
+        cursor.close();
+        db.close();
+        // return user
+        return grievancesData;
+    }
 
+    /**
+     * Delete all the grievances table from DB
+     */
+    public void deleteGrievances() {
+        SQLiteDatabase db = this.getWritableDatabase();
+        // Delete All Rows
+        db.delete(TABLE_GREIVANCE, null, null);
+        db.close();
+        Log.d(TAG, "Deleted all grievances info from sqlite");
     }
 
     /**

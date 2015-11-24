@@ -2,6 +2,7 @@ package teamdevops.mnnit.fragment;
 
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -15,6 +16,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import teamdevops.mnnit.R;
+import teamdevops.mnnit.activity.CMSActivity;
 
 /**
  * Fragment class for the Menu page on the home screen
@@ -41,7 +43,10 @@ public class MenuFragment extends Fragment {
         gridview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View v,
                                     int position, long id) {
-                Toast.makeText(getActivity(), "Clicked", Toast.LENGTH_SHORT).show();
+                if(position == 4)
+                    startActivity(new Intent(getActivity(), CMSActivity.class));
+                else
+                    Toast.makeText(getActivity(), "Clicked", Toast.LENGTH_SHORT).show();
             }
         });
         return view;

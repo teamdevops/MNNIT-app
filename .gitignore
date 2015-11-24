@@ -18,4 +18,4 @@ gradle.properties
 
 #External ignores
 raw_files/
-phpcode/
+server_root/

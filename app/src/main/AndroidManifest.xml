@@ -58,6 +58,24 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="teamdevops.mnnit.activity.HomeActivity" />
         </activity>
+        <activity
+            android:name=".activity.CMSActivity"
+            android:label="@string/title_activity_cms"
+            android:parentActivityName=".activity.HomeActivity"
+            android:theme="@style/CMSActivityTheme">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="teamdevops.mnnit.activity.HomeActivity" />
+        </activity>
+        <activity
+            android:name=".activity.AddGrievanceActivity"
+            android:label="@string/title_activity_add_grievance"
+            android:parentActivityName=".activity.CMSActivity"
+            android:theme="@style/AddGrievanceTheme">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="teamdevops.mnnit.activity.CMSActivity" />
+        </activity>
     </application>
 
 </manifest>

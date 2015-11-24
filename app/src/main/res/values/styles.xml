@@ -14,4 +14,21 @@
         <item name="colorPrimary">@color/HomeActivityPrimaryColor</item>
     </style>
 
+    <style name="CMSActivityTheme" parent="AppTheme">
+        <item name="colorPrimaryDark">@color/FragmentInfoPrimaryColorDark</item>
+        <item name="colorPrimary">@color/FragmentInfoPrimaryColor</item>
+        <item name="colorAccent">@color/FragmentInfoAccentColorDark</item>
+    </style>
+
+    <style name="AddGrievanceTheme" parent="AppTheme">
+        <item name="colorPrimaryDark">@color/FragmentMenuPrimaryColorDark</item>
+        <item name="colorPrimary">@color/FragmentMenuPrimaryColor</item>
+        <item name="colorAccent">@color/FragmentMenuAccentColorDark</item>
+    </style>
+
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
 </resources>

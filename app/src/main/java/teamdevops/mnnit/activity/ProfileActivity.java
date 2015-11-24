@@ -76,6 +76,7 @@ public class ProfileActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 db.deleteUsers();
+                db.deleteGrievances();
                 session.setLogin(false);
                 Intent i = new Intent(ProfileActivity.this,LoginActivity.class);
                 i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
