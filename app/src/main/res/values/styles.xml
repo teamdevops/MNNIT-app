@@ -14,4 +14,10 @@
         <item name="colorPrimary">@color/HomeActivityPrimaryColor</item>
     </style>
 
+    <style name="TimeTableActivityTheme" parent="AppTheme">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
 </resources>

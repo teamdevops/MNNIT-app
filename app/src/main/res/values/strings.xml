@@ -26,6 +26,7 @@
     </string-array>
     <string name="title_activity_mnnit_maps">MNNIT Maps</string>
     <string name="title_activity_profile">Profile</string>
+    <string name="title_activity_time_table">Time Table</string>
     <string name="headerImageDescp">Header Image for Navigation Drawer</string>
     <string name="newsCardTextInfo">No new news feed</string>
     <string name="newsCardTextHeader">News Feed</string>

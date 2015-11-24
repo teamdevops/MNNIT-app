@@ -58,6 +58,18 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="teamdevops.mnnit.activity.HomeActivity" />
         </activity>
+
+        <activity
+            android:name=".activity.TimeTableActivity"
+            android:parentActivityName=".activity.HomeActivity"
+            android:label="@string/title_activity_time_table"
+            android:theme="@style/TimeTableActivityTheme">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="teamdevops.mnnit.activity.HomeActivity" />
+        </activity>
+
+
     </application>
 
 </manifest>
