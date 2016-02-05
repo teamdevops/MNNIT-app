@@ -26,11 +26,11 @@
     </string-array>
     <string name="grievance_category_prompt">Choose a category</string>
     <string-array name="grievance_categories">
+        <item>Others</item>
         <item>Carpentry</item>
         <item>Electrician</item>
         <item>Plumber</item>
         <item>Computer Center</item>
-        <item>Others</item>
     </string-array>
     <string name="title_activity_mnnit_maps">MNNIT Maps</string>
     <string name="title_activity_profile">Profile</string>

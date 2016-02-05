@@ -21,8 +21,6 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -46,9 +44,6 @@ public class AddGrievanceActivity extends AppCompatActivity {
     private String subject;
     private String grievance;
     private String authority;
-    private String created_at;
-    int status = 0;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -112,46 +107,45 @@ public class AddGrievanceActivity extends AppCompatActivity {
             authority = tvHostelGrievance.getText().toString();
             subject = etSubject.getText().toString();
             grievance = etGrievance.getText().toString();
-            status = 0;
-            Calendar c = Calendar.getInstance();
-            SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-            created_at = df.format(c.getTime());
 
-            StringRequest stringRequest = new StringRequest(Request.Method.POST, AppConfig.LOCAL_GREVIANCE_ADD, new Response.Listener<String>() {
-                @Override
-                public void onResponse(String s) {
-                    Log.d("RESPONSE :", s);
-                    if (s.compareTo("Success") == 0)
-                        Toast.makeText(getApplicationContext(), "Grievance Successfully Submitted", Toast.LENGTH_SHORT).show();
-                    else
-                        Toast.makeText(getApplicationContext(), "Grievance Submission Unsuccessful", Toast.LENGTH_SHORT).show();
-                }
-            },
-                    new Response.ErrorListener() {
-                        @Override
-                        public void onErrorResponse(VolleyError volleyError) {
-                            Toast.makeText(getApplicationContext(), "Error connecting to the server: Submission Unsuccesful", Toast.LENGTH_SHORT).show();
-                        }
-                    }){
-                @Override
-                protected Map<String, String> getParams() throws AuthFailureError {
-                    // Posting params to register url
-                    Map<String, String> params = new HashMap<>();
-                    params.put("tag", "login");
-                    params.put("regno", regNo);
-                    params.put("authority", authority);
-                    params.put("type", type);
-                    params.put("subject", subject);
-                    params.put("grievance", grievance);
-                    //params.put("status", status);
-                    params.put("created_at", created_at);
-                    return params;
-                }
-            };
-            stringRequest.setRetryPolicy(new DefaultRetryPolicy(MAX_TIMEOUT_MS, DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
-                    DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
-            VolleySingleton.getInstance(getApplicationContext()).addToRequestQueue(stringRequest);
-            return true;
+            if (subject.equals("") && grievance.equals("")) {
+                Toast.makeText(getApplicationContext(), "Please write your grievance", Toast.LENGTH_SHORT).show();
+            } else {
+                StringRequest stringRequest = new StringRequest(Request.Method.POST, AppConfig.LOCAL_GREVIANCE_ADD, new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String s) {
+                        Log.d("RESPONSE :", s);
+                        if (s.compareTo("Success") == 0) {
+                            Toast.makeText(getApplicationContext(), "Grievance Successfully Submitted", Toast.LENGTH_SHORT).show();
+                            onBackPressed();
+                        } else
+                            Toast.makeText(getApplicationContext(), "Grievance Submission Unsuccessful", Toast.LENGTH_SHORT).show();
+                    }
+                },
+                        new Response.ErrorListener() {
+                            @Override
+                            public void onErrorResponse(VolleyError volleyError) {
+                                Toast.makeText(getApplicationContext(), "Error connecting to the server: Submission Unsuccesful", Toast.LENGTH_SHORT).show();
+                            }
+                        }) {
+                    @Override
+                    protected Map<String, String> getParams() throws AuthFailureError {
+                        // Posting params to register url
+                        Map<String, String> params = new HashMap<>();
+                        params.put("tag", "grievance");
+                        params.put("regno", regNo);
+                        params.put("authority", authority);
+                        params.put("type", type);
+                        params.put("subject", subject);
+                        params.put("grievance", grievance);
+                        return params;
+                    }
+                };
+                stringRequest.setRetryPolicy(new DefaultRetryPolicy(MAX_TIMEOUT_MS, DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
+                        DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
+                VolleySingleton.getInstance(getApplicationContext()).addToRequestQueue(stringRequest);
+                return true;
+            }
         }
 
         return super.onOptionsItemSelected(item);

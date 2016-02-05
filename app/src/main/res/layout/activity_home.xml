@@ -7,7 +7,7 @@
 
     <include
         android:id="@+id/app_bar_home"
-        layout="@layout/app_bar"></include>
+        layout="@layout/app_bar"/>
 
 
     <android.support.v4.widget.DrawerLayout xmlns:app="http://schemas.android.com/apk/res-auto"

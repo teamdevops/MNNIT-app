@@ -1,21 +1,18 @@
-# Java class files
-*.class
-
 # Ignore gradle files
-.gradle/
-build/
+.gradle
+/build
+/captures
 
 # Configuration file (sdk path, etc)
-local.properties
-gradle.properties
+/local.properties
+/gradle.properties
 
 # Intellij project files
-*.iml
-.idea/
+/.idea/workspace.xml
+/.idea/libraries
 
 # Mac system files
 .DS_Store
 
 #External ignores
-raw_files/
-server_root/
+/raw_files

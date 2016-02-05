@@ -51,7 +51,6 @@ public class MenuFragment extends Fragment {
 
                 if (position == 2)
                     startActivity(new Intent(getActivity(), TimeTableActivity.class));
-                Toast.makeText(getActivity(), "Clicked", Toast.LENGTH_SHORT).show();
             }
         });
         return view;

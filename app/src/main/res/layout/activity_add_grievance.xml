@@ -18,12 +18,11 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="vertical">
 
-
             <LinearLayout
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="15dp"
                 android:layout_marginRight="15dp"
@@ -52,7 +51,7 @@
             </LinearLayout>
 
             <LinearLayout
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="15dp"
                 android:layout_marginRight="15dp"
@@ -69,8 +68,8 @@
 
                 <TextView
                     android:id="@+id/tvRegNoGrievance"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
                     android:fontFamily="sans-serif-thin"
                     android:text="20129011"
@@ -78,9 +77,8 @@
 
             </LinearLayout>
 
-
             <LinearLayout
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="15dp"
                 android:layout_marginRight="15dp"
@@ -88,65 +86,43 @@
                 android:orientation="horizontal"
                 android:padding="15dp">
 
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-medium"
+                    android:text="HOSTEL:"
+                    android:textSize="20dp" />
 
-                <LinearLayout
+                <TextView
+                    android:id="@+id/tvHostelGrievance"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:fontFamily="sans-serif-thin"
+                    android:text="Tilak"
+                    android:textSize="20dp" />
+
+                <TextView
+                    android:layout_marginLeft="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-medium"
+                    android:text="Room No:"
+                    android:textSize="20dp" />
+
+                <TextView
+                    android:id="@+id/tvRoomGrievance"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:orientation="horizontal">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="sans-serif-medium"
-                            android:text="HOSTEL:"
-                            android:textSize="20dp" />
-
-                        <TextView
-                            android:id="@+id/tvHostelGrievance"
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:layout_marginLeft="10dp"
-                            android:fontFamily="sans-serif-thin"
-                            android:text="Tilak"
-                            android:textSize="20dp" />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:orientation="horizontal">
-
-                        <TextView
-
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="sans-serif-medium"
-                            android:text="Room NO:"
-                            android:textSize="20dp" />
-
-                        <TextView
-                            android:id="@+id/tvRoomGrievance"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_marginLeft="10dp"
-                            android:fontFamily="sans-serif-thin"
-                            android:text="13"
-                            android:textSize="20dp" />
-                    </LinearLayout>
-
-                </LinearLayout>
+                    android:layout_marginLeft="10dp"
+                    android:fontFamily="sans-serif-thin"
+                    android:text="13"
+                    android:textSize="20dp" />
 
             </LinearLayout>
 
             <LinearLayout
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="15dp"
                 android:layout_marginRight="15dp"
@@ -154,14 +130,11 @@
                 android:orientation="horizontal"
                 android:padding="15dp">
 
-                <EditText
-                    android:id="@+id/etSubject"
+                <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:hint="Subject"
-                    android:scrollHorizontally="true"
-                    android:singleLine="true"
+                    android:fontFamily="sans-serif-medium"
+                    android:text="CATEGORY:"
                     android:textSize="20dp" />
 
                 <Spinner
@@ -169,11 +142,28 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="5dp"
-                    android:layout_weight="1"
                     android:prompt="@string/grievance_category_prompt" />
 
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:padding="15dp">
+
+                <EditText
+                    android:id="@+id/etSubject"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Subject"
+                    android:scrollHorizontally="true"
+                    android:singleLine="true"
+                    android:textSize="20dp" />
 
             </LinearLayout>
+
 
             <ScrollView
                 android:id="@+id/scrollView"
@@ -191,7 +181,6 @@
                     android:inputType="textMultiLine" />
 
             </ScrollView>
-
 
         </LinearLayout>
 

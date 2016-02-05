@@ -9,17 +9,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
 import java.util.HashMap;
 
 import teamdevops.mnnit.R;
 import teamdevops.mnnit.activity.LoginActivity;
 import teamdevops.mnnit.activity.ProfileActivity;
 import teamdevops.mnnit.activity.TimeTableActivity;
-import teamdevops.mnnit.entities.TimeTableData;
 import teamdevops.mnnit.helper.SQLiteHandler;
 
 /**
@@ -51,7 +46,6 @@ public class DashBoardFragment extends Fragment {
         TextView plannerTextInfo = (TextView) rootView.findViewById(R.id.plannerCardTextInfo);
 
         HashMap<String, String> user = db.getUserDetails();
-
 
         db.close();
         if (!user.isEmpty()) {
