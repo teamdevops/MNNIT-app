@@ -3,6 +3,7 @@ package teamdevops.mnnit.fragment;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,6 +16,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import teamdevops.mnnit.R;
+import teamdevops.mnnit.activity.EmergencyHomeActivity;
 import teamdevops.mnnit.activity.MnnitMapsActivity;
 
 /**
@@ -24,11 +26,12 @@ import teamdevops.mnnit.activity.MnnitMapsActivity;
  */
 public class InfoFragment extends Fragment {
 
+    Intent emer_home;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_info, container, false);
+        final View view = inflater.inflate(R.layout.fragment_info, container, false);
         GridView gridview = (GridView) view.findViewById(R.id.info_gridview);
         gridview.setAdapter(new ImageAdapter(getActivity()));
         gridview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -37,6 +40,12 @@ public class InfoFragment extends Fragment {
 
                 if (position == 3)
                     startActivity(new Intent(getActivity(), MnnitMapsActivity.class));
+                else if (position == 5) {
+                    startActivity(new Intent(getActivity(), EmergencyHomeActivity.class));
+                }
+                else if(position == 1){
+
+                }
                 else
                     Toast.makeText(getActivity(), "Clicked", Toast.LENGTH_SHORT).show();
             }

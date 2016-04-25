@@ -47,5 +47,12 @@
     <string name="title_activity_cms">E-Grievance</string>
     <string name="status_progress">Progress</string>
     <string name="title_activity_add_grievance">Enter Your Grievance</string>
+    <string name="title_activity_emergency_home">Health Care</string>
+    <string name="duty_chart_of_doctors_and_physiotherapists">Duty Chart of Doctors and Physiotherapists</string>
+    <string name="title_activity_life_at_mnnithome">LifeAtMNNITHome</string>
+    <string name="title_activity_dept__home">Dept_Home</string>
+    <string name="title_activity_engineering__home">Engineering_Home</string>
+    <string name="title_activity_science__home">Science_Home</string>
+    <string name="title_activity_management__home">Management_Home</string>
 
 </resources>
