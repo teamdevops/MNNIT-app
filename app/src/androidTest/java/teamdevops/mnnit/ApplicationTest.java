@@ -14,6 +14,5 @@ public class ApplicationTest extends ApplicationTestCase<Application> {
     }
 
     Stack s = new Stack();
-    
 
 }

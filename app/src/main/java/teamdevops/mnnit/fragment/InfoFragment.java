@@ -16,13 +16,14 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import teamdevops.mnnit.R;
+import teamdevops.mnnit.activity.Dept_Home;
 import teamdevops.mnnit.activity.EmergencyHomeActivity;
 import teamdevops.mnnit.activity.MnnitMapsActivity;
 
 /**
  * Fragment class for the information page on the home screen
  *
- * @author Deepankar
+ *
  */
 public class InfoFragment extends Fragment {
 
@@ -37,14 +38,13 @@ public class InfoFragment extends Fragment {
         gridview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View v,
                                     int position, long id) {
-
                 if (position == 3)
                     startActivity(new Intent(getActivity(), MnnitMapsActivity.class));
                 else if (position == 5) {
                     startActivity(new Intent(getActivity(), EmergencyHomeActivity.class));
                 }
                 else if(position == 1){
-
+                    startActivity(new Intent(getActivity(), Dept_Home.class));
                 }
                 else
                     Toast.makeText(getActivity(), "Clicked", Toast.LENGTH_SHORT).show();

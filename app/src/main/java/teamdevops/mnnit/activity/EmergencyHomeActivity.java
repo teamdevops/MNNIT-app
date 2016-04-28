@@ -29,9 +29,10 @@ public class EmergencyHomeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_emergency_home);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        android.support.v7.app.ActionBar bar = getSupportActionBar();
+        bar.setDisplayHomeAsUpEnabled(true);
         download_ib1 = (ImageButton) findViewById(R.id.imageButton);
         //download_b1 = (Button) findViewById(R.id.button);
-
 
     }
 
@@ -43,13 +44,5 @@ public class EmergencyHomeActivity extends AppCompatActivity {
             down.setData(Uri.parse(url));
             startActivity(down);
         }
-
-    }
-
-    @Nullable
-    @Override
-    public ActionBar getActionBar() {
-
-        return super.getActionBar();
     }
 }
