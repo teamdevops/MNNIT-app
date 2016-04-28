@@ -51,9 +51,9 @@
     <string name="duty_chart_of_doctors_and_physiotherapists">Duty Chart of Doctors and Physiotherapists</string>
     <string name="title_activity_life_at_mnnithome">LifeAtMNNITHome</string>
     <string name="title_activity_dept__home">Departments</string>
-    <string name="title_activity_engineering__home">Engineering_Home</string>
-    <string name="title_activity_science__home">Science_Home</string>
-    <string name="title_activity_management__home">Management_Home</string>
+    <string name="title_activity_engineering__home">Engineering</string>
+    <string name="title_activity_science__home">Science</string>
+    <string name="title_activity_management__home">Management</string>
 
     <string-array name="Departments">
         <item>Engineering</item>
@@ -70,8 +70,16 @@
         <item>Civil Engineering</item>
         <item>Computer Science and Engineering</item>
         <item>Electrical Engineering</item>
-        <item>Electronics and Communication Engineering</item>
+        <item>Electronics and Comm. Engineering</item>
         <item>Mechanical Engineering</item>
     </string-array>
+
+    <string-array name="ScienceDept">
+        <item>Chemistry</item>
+        <item>Maths</item>
+        <item>Physics</item>
+    </string-array>
+
+
 
 </resources>

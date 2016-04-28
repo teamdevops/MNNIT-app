@@ -4,6 +4,7 @@ import android.app.ActionBar;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Resources;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -44,16 +45,21 @@ public class Dept_Home extends AppCompatActivity {
         Dept_listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View v,
                                     int position, long id) {
-                if (position == 0)
-                    Toast.makeText(getApplicationContext(), "Clicked", Toast.LENGTH_SHORT).show();
+                if (position == 0){
+                    startActivity(new Intent(getApplicationContext(),Engineering_Home.class));
+                }
                 else if (position == 1) {
                     Toast.makeText(getApplicationContext(), "Clicked", Toast.LENGTH_SHORT).show();
                 }
                 else if(position == 2){
                     Toast.makeText(getApplicationContext(), "Clicked", Toast.LENGTH_SHORT).show();
                 }
-                else
-                    Toast.makeText(getApplicationContext(), "Clicked", Toast.LENGTH_SHORT).show();
+                else if(position == 3){
+                    String url = "http://mnnit.ac.in/images/newstories/Faculty_Profile__color_.pdf";
+                    Intent down = new Intent(Intent.ACTION_VIEW);
+                    down.setData(Uri.parse(url));
+                    startActivity(down);
+                }
             }
         });
     }
@@ -81,12 +87,6 @@ public class Dept_Home extends AppCompatActivity {
 
             return row;
         }
-    }
-
-    public void DownloadAllFacultyProfile(View view){
-        String url = "http://mnnit.ac.in/images/newstories/Faculty_Profile__color_.pdf";
-        Intent down = null;
-        //if()
     }
 
 }
