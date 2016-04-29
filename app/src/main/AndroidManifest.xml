@@ -58,7 +58,6 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="teamdevops.mnnit.activity.HomeActivity" />
         </activity>
-
         <activity
             android:name=".activity.CMSActivity"
             android:label="@string/title_activity_cms"
@@ -68,8 +67,6 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="teamdevops.mnnit.activity.HomeActivity" />
         </activity>
-
-
         <activity
             android:name=".activity.TimeTableActivity"
             android:label="@string/title_activity_time_table"
@@ -79,7 +76,6 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="teamdevops.mnnit.activity.HomeActivity" />
         </activity>
-
         <activity
             android:name=".activity.AddGrievanceActivity"
             android:label="@string/title_activity_add_grievance"
@@ -88,6 +84,37 @@
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="teamdevops.mnnit.activity.CMSActivity" />
+        </activity>
+        <activity
+            android:name=".activity.EmergencyHomeActivity"
+            android:label="@string/title_activity_emergency_home"
+            android:parentActivityName=".activity.HomeActivity"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".activity.LifeAtMNNITHome"
+            android:label="@string/title_activity_life_at_mnnithome"
+            android:parentActivityName=".activity.HomeActivity"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".activity.Dept_Home"
+            android:label="@string/title_activity_dept__home"
+            android:parentActivityName=".activity.HomeActivity"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".activity.Engineering_Home"
+            android:label="@string/title_activity_engineering__home"
+            android:parentActivityName=".activity.Dept_Home"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".activity.Science_Home"
+            android:label="@string/title_activity_science__home"
+            android:parentActivityName=".activity.Dept_Home"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".activity.Management_Home"
+            android:label="@string/title_activity_management__home"
+            android:parentActivityName=".activity.Dept_Home"
+            android:theme="@style/AppTheme">
         </activity>
     </application>
 

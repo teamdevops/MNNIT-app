@@ -17,7 +17,9 @@ import android.widget.Toast;
 
 import teamdevops.mnnit.R;
 import teamdevops.mnnit.activity.CMSActivity;
+import teamdevops.mnnit.activity.LoginActivity;
 import teamdevops.mnnit.activity.TimeTableActivity;
+import teamdevops.mnnit.helper.SessionManager;
 
 /**
  * Fragment class for the Menu page on the home screen
@@ -37,6 +39,8 @@ public class MenuFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+        //SessionManager session = SessionManager.getInstance(getApplicationContext());
+
         View view = inflater.inflate(R.layout.fragment_menu, container, false);
         GridView gridview = (GridView) view.findViewById(R.id.menu_gridview);
         gridview.setAdapter(new ImageAdapter(getActivity()));
@@ -46,6 +50,9 @@ public class MenuFragment extends Fragment {
                                     int position, long id) {
                 if (position == 4)
                     startActivity(new Intent(getActivity(), CMSActivity.class));
+                else if(position == 3) {
+                    startActivity(new Intent(getActivity(), LoginActivity.class));
+                }
                 else
                     Toast.makeText(getActivity(), "Clicked", Toast.LENGTH_SHORT).show();
 
@@ -55,6 +62,8 @@ public class MenuFragment extends Fragment {
         });
         return view;
     }
+
+
 
     private class ImageAdapter extends BaseAdapter {
         Context context;
